@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Student Identity Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="24dp"
+            style="@style/Widget.Material3.CardView.Elevated">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Identity"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/displayNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: Mrigank Shukla"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/displayUsnText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USN: 25MCAR0109"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification Lab"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSimpleNotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple Notification"
+            android:layout_marginBottom="12dp"
+            app:icon="@android:drawable/ic_dialog_info"
+            style="@style/Widget.Material3.Button.TonalButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnActionNotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actionable Notification"
+            android:layout_marginBottom="12dp"
+            app:icon="@android:drawable/ic_dialog_alert"
+            style="@style/Widget.Material3.Button.TonalButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBigTextNotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Big Text Notification"
+            android:layout_marginBottom="12dp"
+            app:icon="@android:drawable/ic_menu_info_details"
+            style="@style/Widget.Material3.Button.TonalButton"/>
+
+    </LinearLayout>
+</ScrollView>
