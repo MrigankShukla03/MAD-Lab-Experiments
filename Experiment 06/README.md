@@ -1,49 +1,33 @@
 # Experiment 06: Basic Android Views Lab
 
 ## Overview
-This experiment focuses on implementing and interacting with basic Android UI components (Views). It demonstrates the usage of common widgets like TextView, EditText, Button, ImageButton, CheckBox, ToggleButton, RadioButton, and RadioGroup within a modern Material 3 interface.
+This experiment focuses on implementing and understanding basic Android UI components. It demonstrates the usage of various views to create an interactive form and handle user input effectively.
 
 ## Concept & Technology
-- **Material 3 Design:** Using Material Design 3 components for a modern look and feel.
-- **View Binding:** Efficient and type-safe interaction with UI elements.
-- **Common Widgets:**
-    - **TextView:** Displaying read-only text (Student Identity).
-    - **EditText:** Capturing user input.
-    - **Button & ImageButton:** Handling click events.
-    - **CheckBox:** Managing binary states (Accept/Decline).
-    - **ToggleButton:** Switching between two states.
-    - **RadioGroup & RadioButton:** Selecting a single option from a set.
-- **Fragments:** Using Fragments for modular UI sections.
+- **Core Views:** Implementation of `TextView`, `EditText`, `Button`, and `ImageButton`.
+- **Selection Widgets:** Using `CheckBox`, `ToggleButton`, `RadioButton`, and `RadioGroup` for capturing user preferences.
+- **Event Handling:** Attaching click and checked change listeners to widgets for real-time feedback.
+- **Material 3 Design:** Using Material components for a consistent and modern look.
+- **Fragments:** Modular UI organization using a single-activity architecture.
 
 ## Scenario
-1. **Authentication:** Login screen to verify user identity.
-2. **Dashboard:** Central navigation hub.
-3. **Basic Views Lab:** A dedicated screen demonstrating:
-    - Entering text in an `EditText`.
-    - Clicking a `Button` to show a Toast with input.
-    - Clicking an `ImageButton` for specialized actions.
-    - Checking/Unchecking a `CheckBox`.
-    - Toggling a feature via `ToggleButton`.
-    - Selecting options from a `RadioGroup`.
+1. **Authentication:** A Material 3 login screen with `TextInputLayout`.
+2. **Dashboard:** A central hub showing navigation options.
+3. **Basic Views Lab:** A dedicated screen in the "Student" tab that showcases all implemented widgets within an elevated `MaterialCardView`. Interacting with any widget triggers a `Toast` message with specific feedback.
 
-## Demo Video
-The following video demonstrates the interaction with all basic views and the resulting Toast messages.
+## Test Cases & Screenshots
 
-<video src="demo_exp6.mp4" width="320" height="640" controls></video>
-
-*If the video above doesn't load, you can [view it directly here](demo_exp6.mp4).*
-
-## Screenshots
-
-### 1. Modern Authentication
-![Login Screen](e6_login.png)
+### 1. Modern Authentication Page
+User entry point for identity verification.
+![Login Screen](screenshots/login.png)
 
 ### 2. Dashboard (Home)
-![Dashboard Screen](e6_dashboard.png)
+The landing fragment after successful login.
+![Dashboard Home](screenshots/dashboard_home.png)
 
-### 3. Basic Views Lab
-Demonstrating multiple view types with student identity (**Name: Mrigank Shukla | USN: 25MCAR0109**).
-![Basic Views Screen](e6_views.png)
+### 3. Basic Views Showcase
+Demonstration of all core widgets including inputs, toggles, and radio selections.
+![Widgets Lab](screenshots/widgets_lab.png)
 
 ---
 **Developer:** Mrigank Shukla  
