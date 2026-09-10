@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary">#1E3A8A</color> <!-- Deep Indigo / Navy -->
+    <color name="primary_variant">#172554</color>
+    <color name="secondary">#0284C7</color> <!-- Sky Blue -->
+    <color name="accent">#0D9488</color> <!-- Teal -->
+
+    <!-- Category Specific Colors -->
+    <color name="academic_primary">#4F46E5</color>
+    <color name="academic_bg">#EEF2FF</color>
+    <color name="technical_primary">#0284C7</color>
+    <color name="technical_bg">#E0F2FE</color>
+    <color name="library_primary">#0D9488</color>
+    <color name="library_bg">#CCFBF1</color>
+
+    <!-- Neutral & UI Colors -->
+    <color name="background">#F8FAFC</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="card_stroke_default">#E2E8F0</color>
+    <color name="card_stroke_selected">#1E3A8A</color>
+
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
+
+    <color name="success_emerald">#10B981</color>
+    <color name="success_emerald_bg">#D1FAE5</color>
+    <color name="error_red">#EF4444</color>
+
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

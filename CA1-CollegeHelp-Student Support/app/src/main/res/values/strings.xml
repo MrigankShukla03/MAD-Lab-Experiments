@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Details -->
+    <string name="app_name">CollegeHelp</string>
+    <string name="app_subtitle">Student Support System</string>
+    <string name="app_description">Submit support requests easily for academic guidance, technical assistance, or library resources.</string>
+
+    <!-- Section Titles -->
+    <string name="title_support_categories">Select Support Category</string>
+    <string name="title_support_request_form">Support Request Form</string>
+    <string name="title_request_confirmed">Request Submitted!</string>
+
+    <!-- Support Categories -->
+    <string name="category_academic">Academic Support</string>
+    <string name="category_academic_desc">Courses, exams, &amp; advisor meetings</string>
+    <string name="category_academic_info">Need assistance with course selection, assignment submission guidance, exam timetables, or faculty meetings? Submit your academic query below.</string>
+
+    <string name="category_technical">Technical Support</string>
+    <string name="category_technical_desc">Wi-Fi, portal login, &amp; email</string>
+    <string name="category_technical_info">Facing issues with campus Wi-Fi, student portal logins, lab software installations, or email accounts? Contact the IT help desk here.</string>
+
+    <string name="category_library">Library Support</string>
+    <string name="category_library_desc">Book loans, journals, &amp; cards</string>
+    <string name="category_library_info">Questions regarding book borrowing, digital journal database access, quiet study space reservations, or library membership cards? Let us know.</string>
+
+    <!-- Form Labels -->
+    <string name="label_student_name">Student Full Name</string>
+    <string name="hint_student_name">e.g., Alex Johnson</string>
+    <string name="label_problem_description">Problem Description</string>
+    <string name="hint_problem_description">Describe your issue or request in detail...</string>
+    <string name="btn_submit_request">Submit Request</string>
+    <string name="btn_return_home">Return to Home</string>
+
+    <!-- Validation Messages -->
+    <string name="error_empty_name">Please enter your student name.</string>
+    <string name="error_empty_description">Please provide a description of your issue.</string>
+
+    <!-- Confirmation Screen -->
+    <string name="confirmation_msg">Your support request has been successfully registered. Our team will review your submission and contact you shortly.</string>
+    <string name="label_submitted_student">Student Name:</string>
+    <string name="label_submitted_category">Category:</string>
+    <string name="label_submitted_description">Issue Details:</string>
+    <string name="label_ticket_id">Ticket Reference:</string>
+
+    <!-- Notification Strings -->
+    <string name="notification_channel_name">Student Support Notifications</string>
+    <string name="notification_channel_desc">Notifications regarding student support requests and status updates.</string>
+    <string name="notification_title">Support Request Confirmed</string>
+    <string name="notification_body">Hello %1$s, your request for %2$s has been submitted successfully.</string>
+</resources>
