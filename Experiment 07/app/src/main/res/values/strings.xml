@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Experiment 07</string>
+    <string name="title_courses">Course Modules</string>
+    <string name="subtitle_adaptive_list">Adaptive ListView &amp; ImageView Demo</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_student">Basic Views</string>
+    <string name="nav_account">Account</string>
+</resources>
