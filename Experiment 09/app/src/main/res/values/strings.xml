@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Experiment 09</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_web">Web Portal</string>
+    <string name="nav_persistence">Data Persistence</string>
+    <string name="nav_account">Account</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_refresh">Refresh Page</string>
+    <string name="menu_open_external">Open in External Browser</string>
+    <string name="menu_clear_cache">Clear Web Cache</string>
+    <string name="menu_about">About Experiment 09</string>
+
+    <string name="popup_open_portal">Open Course Web Portal</string>
+    <string name="popup_share">Share Course Details</string>
+    <string name="popup_bookmark">Save to SQLite Database</string>
+</resources>
