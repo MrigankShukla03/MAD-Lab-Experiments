@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/popup_open_portal"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/popup_open_portal" />
+    <item
+        android:id="@+id/popup_bookmark"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/popup_bookmark" />
+    <item
+        android:id="@+id/popup_share"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="@string/popup_share" />
+</menu>

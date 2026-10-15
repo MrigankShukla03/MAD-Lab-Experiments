@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="3dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/ivProduct"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:contentDescription="Product Image"
+            android:scaleType="fitCenter"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
+
+        <!-- Rating & Category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#388E3C"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="2dp"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text="★ 3.9" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                tools:text="men's clothing" />
+        </LinearLayout>
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="$109.95" />
+
+        <!-- Add to Cart / Quantity Selector -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/flipkart_yellow"
+                android:text="ADD TO CART"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="4dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/flipkart_blue"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnMinus"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="1" />
+
+                <Button
+                    android:id="@+id/btnPlus"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
