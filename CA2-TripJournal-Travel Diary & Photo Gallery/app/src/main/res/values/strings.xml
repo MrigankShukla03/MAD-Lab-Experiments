@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TripJournal</string>
+    <string name="title_trip_list">My Travel Diary</string>
+    <string name="title_add_trip">Record New Trip</string>
+    <string name="title_edit_trip">Edit Trip</string>
+    <string name="title_trip_detail">Trip Details &amp; Gallery</string>
+    <string name="title_map_overview">All Trips Map View</string>
+
+    <string name="hint_trip_title">Trip Title (e.g., Mountain Expedition)</string>
+    <string name="hint_place_name">Location / Place Name</string>
+    <string name="hint_notes">Write your travel journal notes here...</string>
+    <string name="hint_date">Date (DD-MM-YYYY)</string>
+
+    <string name="btn_save_trip">Save Trip</string>
+    <string name="btn_pick_cover">Select Cover Photo</string>
+    <string name="btn_add_photo">Add Gallery Photo</string>
+    <string name="btn_view_map">View All on Map</string>
+</resources>
