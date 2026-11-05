@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tripjournal.R
 import com.example.tripjournal.activities.TripDetailsActivity
 import com.example.tripjournal.database.TripDatabaseHelper
 import com.example.tripjournal.databinding.FragmentMapBinding
 import com.example.tripjournal.models.Trip
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -25,7 +27,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private val binding get() = _binding!!
 
     private lateinit var dbHelper: TripDatabaseHelper
-    private lateinit var googleMap: GoogleMap
+    private var googleMap: GoogleMap? = null
     private var tripsList: List<Trip> = emptyList()
 
     override fun onCreateView(
@@ -43,18 +45,31 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         dbHelper = TripDatabaseHelper(requireContext())
         tripsList = dbHelper.getAllTrips()
 
-        val mapFragment = childFragmentManager.findFragmentById(R.id.mapFragment) as? SupportMapFragment
-            ?: SupportMapFragment.newInstance().also {
-                childFragmentManager.beginTransaction().replace(R.id.mapFragment, it).commit()
+        val availability = GoogleApiAvailability.getInstance()
+        val resultCode = availability.isGooglePlayServicesAvailable(requireContext())
+
+        if (resultCode == com.google.android.gms.common.ConnectionResult.SUCCESS) {
+            try {
+                val mapFragment = childFragmentManager.findFragmentById(R.id.mapFragment) as? SupportMapFragment
+                    ?: SupportMapFragment.newInstance().also {
+                        childFragmentManager.beginTransaction().replace(R.id.mapFragment, it).commit()
+                    }
+                mapFragment.getMapAsync(this)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                showDemoMapFallback()
             }
-        mapFragment.getMapAsync(this)
+        } else {
+            Toast.makeText(context, "Google Play Services unavailable. Running in Demo Map Mode.", Toast.LENGTH_LONG).show()
+            showDemoMapFallback()
+        }
     }
 
     override fun onResume() {
         super.onResume()
         dbHelper = TripDatabaseHelper(requireContext())
         tripsList = dbHelper.getAllTrips()
-        if (::googleMap.isInitialized) {
+        if (googleMap != null) {
             setupMarkers()
         }
     }
@@ -65,8 +80,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setupMarkers() {
-        if (!::googleMap.isInitialized) return
-        googleMap.clear()
+        val map = googleMap ?: return
+        map.clear()
 
         if (tripsList.isEmpty()) return
 
@@ -74,7 +89,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         for (trip in tripsList) {
             val latLng = LatLng(trip.latitude, trip.longitude)
-            val marker = googleMap.addMarker(
+            val marker = map.addMarker(
                 MarkerOptions()
                     .position(latLng)
                     .title(trip.title)
@@ -84,7 +99,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             boundsBuilder.include(latLng)
         }
 
-        googleMap.setOnInfoWindowClickListener { marker ->
+        map.setOnInfoWindowClickListener { marker ->
             val tripId = marker.tag as? Long
             tripId?.let {
                 val intent = Intent(requireContext(), TripDetailsActivity::class.java).apply {
@@ -96,13 +111,18 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         try {
             val bounds = boundsBuilder.build()
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 120))
+            map.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 120))
         } catch (e: Exception) {
             if (tripsList.isNotEmpty()) {
                 val first = tripsList[0]
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(first.latitude, first.longitude), 12f))
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(first.latitude, first.longitude), 12f))
             }
         }
+    }
+
+    private fun showDemoMapFallback() {
+        // Fallback UI or toast when map cannot render
+        Toast.makeText(context, "Demo Map Mode Active: ${tripsList.size} locations loaded.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
