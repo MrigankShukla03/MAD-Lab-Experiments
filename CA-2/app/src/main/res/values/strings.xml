@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TripJournal</string>
+    <string name="tagline">Every journey deserves a memory.</string>
+
+    <!-- Bottom Nav Sections -->
+    <string name="nav_explore">Explore</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_memories">Memories</string>
+
+    <string name="title_explore">My Travel Diary</string>
+    <string name="title_add_trip">Record New Trip</string>
+    <string name="title_edit_trip">Edit Trip</string>
+    <string name="title_trip_details">Trip Details &amp; Gallery</string>
+    <string name="title_map_view">All Visited Locations</string>
+
+    <string name="empty_trips_msg">No journeys recorded yet.</string>
+    <string name="btn_first_journey">Start Your First Journey</string>
+
+    <string name="hint_trip_title">Trip Title (e.g. Mountain Expedition)</string>
+    <string name="hint_location">Select Location from Map</string>
+    <string name="hint_date">Travel Date</string>
+    <string name="hint_notes">Write your travel notes and experiences here...</string>
+
+    <string name="btn_choose_location">Choose Location on Map</string>
+    <string name="btn_add_photos">Add Photographs</string>
+    <string name="btn_select_cover">Select Cover Photo</string>
+    <string name="btn_save_trip">Save Trip</string>
+    <string name="btn_update_trip">Update Trip</string>
+</resources>
