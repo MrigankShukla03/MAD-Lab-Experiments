@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.tripjournal.app'
+    namespace 'com.example.tripjournal'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.tripjournal.app"
+        applicationId "com.example.tripjournal"
         minSdk 24
         targetSdk 34
         versionCode 1

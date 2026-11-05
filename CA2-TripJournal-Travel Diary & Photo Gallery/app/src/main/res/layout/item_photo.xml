@@ -11,11 +11,11 @@
     app:strokeWidth="1dp">
 
     <ImageView
-        android:id="@+id/ivGalleryThumb"
+        android:id="@+id/ivPhotoThumb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#E2E8F0"
-        android:contentDescription="Gallery Photo"
+        android:contentDescription="Photo Thumbnail"
         android:scaleType="centerCrop" />
 
 </com.google.android.material.card.MaterialCardView>

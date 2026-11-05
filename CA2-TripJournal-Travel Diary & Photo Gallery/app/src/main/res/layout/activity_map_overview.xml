@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapOverviewActivity">
+    tools:context=".activities.MapActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
-            app:title="@string/title_map_overview"
+            app:title="Choose Location"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>

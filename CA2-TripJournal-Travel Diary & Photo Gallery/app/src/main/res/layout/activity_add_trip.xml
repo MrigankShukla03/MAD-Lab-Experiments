@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".AddTripActivity">
+    tools:context=".activities.AddTripActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -33,111 +33,62 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Map Instruction Banner -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="📍 Long-press on the map below to select visit location coordinates:"
-                android:textColor="@color/primary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-            <!-- Google Map Fragment Container -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/mapAddTripContainer"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </androidx.cardview.widget.CardView>
-
-            <!-- Latitude & Longitude Display -->
-            <TextView
-                android:id="@+id/tvSelectedCoords"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Selected Coordinates: None (Long-press map)"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-
-            <!-- Trip Title Input -->
+            <!-- Trip Title -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
-
+                android:layout_marginBottom="12dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTripTitle"
+                    android:id="@+id/etTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_trip_title"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Place Name Input -->
+            <!-- Location Picker Button & Display -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnChooseLocation"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_choose_location"
+                app:cornerRadius="12dp" />
+
+            <TextView
+                android:id="@+id/tvSelectedLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Location: Not selected (Tap Choose Location)"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <!-- Date Picker Input -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
-
+                android:layout_marginBottom="12dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPlaceName"
+                    android:id="@+id/etDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_place_name"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Date Input -->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTripDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:focusable="false"
                     android:hint="@string/hint_date"
                     android:inputType="date" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Notes Input -->
+            <!-- Notes -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
-
+                android:layout_marginBottom="16dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTripNotes"
+                    android:id="@+id/etNotes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top|start"
@@ -153,17 +104,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="12dp"
-                android:text="@string/btn_pick_cover"
+                android:text="@string/btn_select_cover"
                 app:cornerRadius="12dp" />
 
             <ImageView
                 android:id="@+id/ivCoverPreview"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="16dp"
                 android:background="#E2E8F0"
                 android:contentDescription="Cover Preview"
                 android:scaleType="centerCrop" />
+
+            <!-- Multiple Photos Selection -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddPhotos"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/btn_add_photos"
+                app:cornerRadius="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewSelectedPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:clipToPadding="false" />
 
             <!-- Save Trip Button -->
             <com.google.android.material.button.MaterialButton
