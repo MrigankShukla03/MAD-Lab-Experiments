@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tripjournal.R
@@ -29,6 +30,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var dbHelper: TripDatabaseHelper
     private var googleMap: GoogleMap? = null
     private var tripsList: List<Trip> = emptyList()
+    private var isWebMapMode = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +47,26 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         dbHelper = TripDatabaseHelper(requireContext())
         tripsList = dbHelper.getAllTrips()
 
+        setupNativeMap()
+        setupEmbeddedWebView()
+
+        binding.btnToggleMapMode.setOnClickListener {
+            isWebMapMode = !isWebMapMode
+            if (isWebMapMode) {
+                binding.containerNativeMap.visibility = View.GONE
+                binding.containerWebMap.visibility = View.VISIBLE
+                binding.btnToggleMapMode.text = "Switch to Native Google Map"
+                Toast.makeText(context, "Showing Embedded Google Maps Iframe", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.containerNativeMap.visibility = View.VISIBLE
+                binding.containerWebMap.visibility = View.GONE
+                binding.btnToggleMapMode.text = "Switch to Embedded Web Map (Iframe)"
+                Toast.makeText(context, "Showing Native Google Map", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupNativeMap() {
         val availability = GoogleApiAvailability.getInstance()
         val resultCode = availability.isGooglePlayServicesAvailable(requireContext())
 
@@ -57,11 +79,41 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 mapFragment.getMapAsync(this)
             } catch (e: Exception) {
                 e.printStackTrace()
-                showDemoMapFallback()
             }
-        } else {
-            Toast.makeText(context, "Google Play Services unavailable. Running in Demo Map Mode.", Toast.LENGTH_LONG).show()
-            showDemoMapFallback()
+        }
+    }
+
+    private fun setupEmbeddedWebView() {
+        binding.webViewEmbedMap.apply {
+            settings.javaScriptEnabled = true
+            settings.domStorageEnabled = true
+            webViewClient = WebViewClient()
+
+            val embedHtml = """
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #F8F8F2; }
+                        iframe { width: 100%; height: 100%; border: 0; }
+                    </style>
+                </head>
+                <body>
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      style="border:0;"
+                      loading="lazy"
+                      allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCnL0xWyoF4yCBfkguBirgsUXaOgcmjBaA&q=Space+Needle,Seattle+WA">
+                    </iframe>
+                </body>
+                </html>
+            """.trimIndent()
+
+            loadDataWithBaseURL(null, embedHtml, "text/html", "UTF-8", null)
         }
     }
 
@@ -118,11 +170,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(first.latitude, first.longitude), 12f))
             }
         }
-    }
-
-    private fun showDemoMapFallback() {
-        // Fallback UI or toast when map cannot render
-        Toast.makeText(context, "Demo Map Mode Active: ${tripsList.size} locations loaded.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
